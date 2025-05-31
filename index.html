@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shared Spending Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="tracker">
+    
+    <h5>Shared Spending Calculator</h5>
+    <div class="section">
+      <input type="text" id="nameInput" placeholder="Enter Name: " />
+      <button onclick="addPerson()">Add Name</button>
+    </div>
+
+    <div class="section" id="peopleList">
+      <h2>Participants:</h2>
+    </div>
+    
+    <label><input type="checkbox" id="selectAll" onchange="toggleSelectAll()" /> 
+      Select All
+    </label>
+
+    <div class="section">
+      <input type="number" id="amountInput" placeholder="Enter Amount $: " />
+      <input type="text" id="descInput" placeholder="Optional Split Description" />
+      <button onclick="splitCost()">Split Cost</button>
+    </div>
+
+    <div class="section">
+      <button onclick="undoLast()">Undo Last</button>
+      <button onclick="resetAll()">Reset Totals</button>
+    </div>
+
+    <div class="section">
+      <button onclick="exportData()">Export JSON</button>
+      <button onclick="exportCSV()">Export CSV</button>
+      <button onclick="exportImage()">Export Image</button>
+      <button onclick="exportPDF()">Export PDF</button>
+      <button onclick="shareViaEmail()">Share via Email</button>
+    </div>
+
+    <div class="section">
+      <input type="file" id="fileInput" accept=".json" onchange="importData()" />
+    </div>
+
+    <div class="section" id="results">
+      <h2>Totals:</h2>
+    </div>
+
+    <div class="section" id="history">
+      <h2>Expense Breakdown:</h2>
+    </div>
+  </div>
+
+<!-- Libraries -->
+  <!-- For exporting as Image -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- For exporting to PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
